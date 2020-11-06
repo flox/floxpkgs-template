@@ -16,9 +16,9 @@ nix-build -A foo
 nix-build -A bar
 ```
 
-The Nix expressions in these files are auto-called in mostly the same way as files in nixpkgs are. That is, any nixpkgs attribute can be added to the argument list at the top to get that dependency in scope. E.g. to depend on `stdenv` and `libpng`:
+The Nix expressions in these files are auto-called in mostly the same way as files in nixpkgs are. That is, any nixpkgs attribute can be added to the argument list at the top to get that dependency in scope. E.g. to depend on `stdenv` and `libpng`, start the file with
 
-```
+```nix
 { stdenv, libpng }: ...
 ```
 
@@ -30,7 +30,7 @@ For example, if we want to do modifications to the `ncurses` dependency of our d
 
 It is also possible to depend on packages from other nixexprs channels, which is done by adding the `channels` argument to the argument list, and using `channels.<name>.<package>` to get a specific package from another channel. E.g. to depend on package `gpm` from channel `someChannel` (corresponding to GitHub user `someChannel`'s nixexprs repository):
 
-```
+```nix
 { stdenv, channels }: stdenv.mkDerivation {
   buildInputs = [
     channels.someChannel.gpm
