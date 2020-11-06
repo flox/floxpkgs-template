@@ -48,3 +48,17 @@ It is also possible to depend on packages from other nixexprs channels, which is
 ```
 
 ## Resolving package conflicts
+
+It can easily happen for a package conflict to occur. E.g. if the above example is extended to mirror nixpkgs python package `toml` with some modifications into `./pythonPackages/toml/default.nix`, building `python3Packages.black` will fail with
+
+```
+pythonCatchConflictsPhase
+Found duplicated packages in closure for dependency 'toml':
+  toml 0.10.1 (/nix/store/3an149y1zwr2a2m0b2imzd097xyqh03g-python3.8-toml-0.10.1/lib/python3.8/site-packages)
+  toml 0.10.1 (/nix/store/gpl2anl6b6qj43h27pwdg0ip856nbyh0-python3.8-toml-0.10.1/lib/python3.8/site-packages)
+
+Package duplicates found in closure, see above. Usually this happens if two packages depend on different version of the same dependency.
+builder for '/nix/store/6nc56ahrw35vpx96jbywb9s26rv66v08-python3.8-black-19.10b0.drv' failed with exit code 1
+```
+
+TODO: How to resolve this
