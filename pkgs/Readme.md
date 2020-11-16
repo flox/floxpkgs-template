@@ -1,4 +1,4 @@
-# General Nix packages
+# General packages
 
 In this directory you can define Nix expressions for building general Nix packages, not specific to any package set.
 

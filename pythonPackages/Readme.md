@@ -52,6 +52,8 @@ It is also possible to depend on packages from other nixexprs channels, which is
 It can easily happen for a package conflict to occur. E.g. if the above example is extended to mirror nixpkgs python package `toml` with some modifications into `./pythonPackages/toml/default.nix`, building `python3Packages.black` will fail with
 
 ```
+$ nix-build -A python3Packages.black
+[...]
 pythonCatchConflictsPhase
 Found duplicated packages in closure for dependency 'toml':
   toml 0.10.1 (/nix/store/3an149y1zwr2a2m0b2imzd097xyqh03g-python3.8-toml-0.10.1/lib/python3.8/site-packages)
@@ -61,4 +63,22 @@ Package duplicates found in closure, see above. Usually this happens if two pack
 builder for '/nix/store/6nc56ahrw35vpx96jbywb9s26rv66v08-python3.8-black-19.10b0.drv' failed with exit code 1
 ```
 
-TODO: How to resolve this
+This happens because only the immediate dependency of `toml` is overridden to the version of your own channel, while any dependencies which transitively depend on toml still use the non-overridden version.
+
+To fix this, toml needs to be _deeply overridden_, which can be done by creating a file `./pythonPackages/toml/deep-override`:
+```
+touch pythonPackages/toml/deep-override
+```
+
+Now the build for `python3Packages.black` succeeds:
+```
+$ nix-build -A python3Packages.black
+[...]
+pythonCatchConflictsPhase
+pythonRemoveBinBytecodePhase
+pythonImportsCheckPhase
+Executing pythonImportsCheckPhase
+pytestcachePhase
+/nix/store/n8dq5wfha74pdl0vyh101s7szyxxzim7-python3.8-black-19.10b0
+```
+
