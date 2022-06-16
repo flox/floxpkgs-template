@@ -4,17 +4,9 @@ rec {
   inputs.capacitor.url = "git+ssh://git@github.com/flox/capacitor";
   inputs.capacitor.inputs.root.follows = "/";
 
-  inputs.nixpkgs.url = "git+ssh://git@github.com/flox/nixpkgs-flox";
-  inputs.nixpkgs.inputs.capacitor.follows = "capacitor";
-
   inputs.flox.url = "git+ssh://git@github.com/flox/floxpkgs";
   inputs.flox.inputs.capacitor.follows = "capacitor";
-  inputs.flox.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.flox.inputs.ops-env.follows = "/";
-
-  # TODO: preferred method below would only need this. (https://github.com/NixOS/nix/issues/5790)
-  # inputs.floxpkgs.url = "git+ssh://git@github.com/flox/floxpkgs";
-  # inputs.floxpkgs.inputs.capacitor.inputs.root.follows = "/";
+  inputs.flox.inputs.nixpkgs.follows = "capacitor/nixpkgs";
 
   nixConfig.bash-prompt = "[flox] \\[\\033[38;5;172m\\]λ \\[\\033[0m\\]";
 
