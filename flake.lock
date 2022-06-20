@@ -10,11 +10,11 @@
         "root": []
       },
       "locked": {
-        "lastModified": 1655124817,
-        "narHash": "sha256-v6puO/7RhlknD+5+9XYgOCMpTI9BrZSpCNTTLSwa4mU=",
+        "lastModified": 1655743547,
+        "narHash": "sha256-z8aMi31gUGNFqNkrM6AtbBdS0fdxjErNYEbak6F7o7M=",
         "ref": "refs/heads/master",
-        "rev": "e76ff4977fb8239423187ae9975ac7cdaa183492",
-        "revCount": 198,
+        "rev": "bb06f0ed01e60ddb79cc7aed114ac633898f756d",
+        "revCount": 203,
         "type": "git",
         "url": "ssh://git@github.com/flox/capacitor"
       },
@@ -302,11 +302,11 @@
         "pypi-deps-db": "pypi-deps-db"
       },
       "locked": {
-        "lastModified": 1654084003,
-        "narHash": "sha256-j/XrVVistvM+Ua+0tNFvO5z83isL+LBgmBi9XppxuKA=",
+        "lastModified": 1655670309,
+        "narHash": "sha256-BpFY3YKt6JkWeK94IpIS+qnRhqDHPWZDhXMJYMZwpYc=",
         "owner": "DavHau",
         "repo": "mach-nix",
-        "rev": "7e14360bde07dcae32e5e24f366c83272f52923f",
+        "rev": "7e84a4e8fe088449abfa22476ad35c6cf493cad1",
         "type": "github"
       },
       "original": {
@@ -536,11 +536,11 @@
     },
     "nixpkgs-staging": {
       "locked": {
-        "lastModified": 1654682581,
-        "narHash": "sha256-Jb1PQCwKgwdNAp907eR5zPzuxV+kRroA3UIxUxCMJ9s=",
+        "lastModified": 1655221618,
+        "narHash": "sha256-ht8HRFthDKzYt+il+sGgkBwrv+Ex2l8jdGVpsrPfFME=",
         "owner": "flox",
         "repo": "nixpkgs",
-        "rev": "e0169d7a9d324afebf5679551407756c77af8930",
+        "rev": "6616de389ed55fba6eeba60377fc04732d5a207c",
         "type": "github"
       },
       "original": {
@@ -607,11 +607,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1655320598,
-        "narHash": "sha256-eo/IrAHuPwr6cAHnjcNrwgKzMH/zQMFy16/u87dWD0M=",
+        "lastModified": 1655411478,
+        "narHash": "sha256-o9sBou4u3ujHAkavr1VQ5f7gARWinoU6Vn0coG+Dg6Q=",
         "ref": "refs/heads/master",
-        "rev": "d2ad6e4d4fb51263faaab0cc691f08c9e11abebc",
-        "revCount": 61,
+        "rev": "29e796818030eb204122045916a71d39a4018724",
+        "revCount": 62,
         "type": "git",
         "url": "ssh://git@github.com/flox/nixpkgs-flox"
       },
