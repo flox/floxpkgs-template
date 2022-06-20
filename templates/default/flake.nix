@@ -12,17 +12,15 @@ rec {
 
   outputs = _:
     _.capacitor _ ({flox,auto,lib, ...}: {
+      devShells.default = _.capacitor.lib.mkFloxShell _ ./flox.toml _.self.__pins;
       apps = flox.apps;
-      legacyPackages = { pkgs, system, ...  }: {
-        default = auto.automaticPkgsWith inputs ./pkgs pkgs;
-        flox = flox.legacyPackages.${system}.flox;
-      };
 
-      templates = {
-        default = {
-          path = ./templates/default;
-          description = "Example developer environment";
-        };
-      };
+      # AUTO-MANAGED AFTER THIS POINT ##################################
+      # AUTO-MANAGED AFTER THIS POINT ##################################
+      # AUTO-MANAGED AFTER THIS POINT ##################################
+      __pins.versions = [
+      ];
+      __pins.vscode-extensions = [
+      ];
     });
 }
