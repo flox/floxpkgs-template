@@ -1,10 +1,10 @@
 rec {
   description = "Template using specific versions";
 
-  inputs.capacitor.url = "git+ssh://git@github.com/flox/capacitor";
+  inputs.capacitor.url = "git+ssh://git@github.com/flox/capacitor?ref=master";
   inputs.capacitor.inputs.root.follows = "/";
 
-  inputs.flox.url = "git+ssh://git@github.com/flox/floxpkgs";
+  inputs.flox.url = "git+ssh://git@github.com/flox/floxpkgs?ref=master";
   inputs.flox.inputs.capacitor.follows = "capacitor";
   inputs.flox.inputs.nixpkgs.follows = "capacitor/nixpkgs";
 
