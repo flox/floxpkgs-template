@@ -5,7 +5,6 @@ rec {
   inputs.capacitor.inputs.root.follows = "/";
 
   inputs.flox.url = "git+ssh://git@github.com/flox/floxpkgs?ref=master";
-  inputs.flox.inputs.capacitor.follows = "capacitor";
   inputs.flox.inputs.nixpkgs.follows = "capacitor/nixpkgs";
 
   nixConfig.bash-prompt = "[flox] \\[\\033[38;5;172m\\]λ \\[\\033[0m\\]";
