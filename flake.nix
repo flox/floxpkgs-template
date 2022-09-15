@@ -1,27 +1,23 @@
-rec {
-  description = "Template using specific versions";
+{
+ 
+ 
+  # Declaration of external resources
+  # =================================
 
-  inputs.capacitor.url = "git+ssh://git@github.com/flox/capacitor?ref=master";
-  inputs.capacitor.inputs.root.follows = "/";
+  # =================================
 
-  inputs.flox.url = "git+ssh://git@github.com/flox/floxpkgs?ref=master";
-  inputs.flox.inputs.nixpkgs.follows = "capacitor/nixpkgs";
 
+
+  # Template DO NOT EDIT
+  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  outputs = args @ {capacitor, ...}: capacitor args (import ./flox.nix);
   nixConfig.bash-prompt = "[flox] \\[\\033[38;5;172m\\]λ \\[\\033[0m\\]";
-
-  outputs = _:
-    _.capacitor _ ({flox,auto,lib, ...}: {
-      apps = flox.apps;
-      legacyPackages = { pkgs, system, ...  }: {
-        default = auto.automaticPkgsWith inputs ./pkgs pkgs;
-        flox = flox.legacyPackages.${system}.flox;
-      };
-
-      templates = {
-        default = {
-          path = ./templates/default;
-          description = "Example developer environment";
-        };
-      };
-    });
+  nixConfig.extra-substituters = ["https://cache.floxdev.com?trusted=1"];
+  # could be inferred?
+  inputs.floxpkgs.url = "github:flox/floxpkgs";
+  inputs.capacitor.url = "github:flox/capacitor?ref=v0";
+  inputs.capacitor.inputs.root.follows = "/";
+  inputs.flox-extras.url = "github:flox/flox-extras/feature/allCatalogs";
+  inputs.flox-extras.inputs.capacitor.follows = "capacitor";          
+  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
