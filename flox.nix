@@ -11,7 +11,7 @@
   # DO NOT EDIT
   config.extraPlugins = [
       (
-        inputs.floxpkgs.flox-extras.plugins.catalog {
+        inputs.floxpkgs.plugins.catalog {
           catalogDirectory = self.outPath + "/catalog";
         }
       )
