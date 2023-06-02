@@ -70,33 +70,33 @@
             "slack"
           ];
           */
-
-          # `config.projects` can be used to compose capacitated  package sets.
-          # All packages defined in the imported projects will be merged
-          # and become available in the `context` of this flake.
-          #
-          # Note: composing package sets may require rebuilding some packages
-          #       as some dependency versions may differ
-          #       from one package set to another.
-          #       composing such package sets ensures a single coherent set.
-          projects = {
-            /*
-            inherit (context.capacitated) my-project;
-            */
-          };
-
-          # If a package is already defined by an imported project
-          # (see `config.projects`) an error will be thrown asking to rename
-          # the local package or ensure that it is compatible
-          # with the existing package.
-          # If you choose to attest its compatibility,
-          # add the name of the package here, as instructed at build time.
-          checkedExtensions = [
-            /*
-            "some-package"
-            */
-          ];
         };
-      };
+
+        # `config.projects` can be used to compose capacitated  package sets.
+        # All packages defined in the imported projects will be merged
+        # and become available in the `context` of this flake.
+        #
+        # Note: composing package sets may require rebuilding some packages
+        #       as some dependency versions may differ
+        #       from one package set to another.
+        #       composing such package sets ensures a single coherent set.
+        projects = {
+          /*
+          inherit (context.capacitated) my-project;
+          */
+        };
+
+        # If a package is already defined by an imported project
+        # (see `config.projects`) an error will be thrown asking to rename
+        # the local package or ensure that it is compatible
+        # with the existing package.
+        # If you choose to attest its compatibility,
+        # add the name of the package here, as instructed at build time.
+        checkedExtensions = [
+          /*
+          "some-package"
+          */
+        ];
+      };  
     });
 }
